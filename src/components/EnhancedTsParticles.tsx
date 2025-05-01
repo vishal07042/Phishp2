@@ -38,7 +38,7 @@ const EnhancedTsParticles: React.FC<EnhancedTsParticlesProps> = ({
 				fpsLimit: 120,
 				particles: {
 					number: {
-						value: 150, // Increased number of particles
+						value: 60, // Reduced number of particles for better performance
 						density: {
 							enable: true,
 							value_area: 800,
@@ -94,14 +94,14 @@ const EnhancedTsParticles: React.FC<EnhancedTsParticlesProps> = ({
 					},
 					move: {
 						enable: true,
-						speed: 1,
+						speed: 0.5, // Reduced speed for better performance
 						direction: "none",
 						random: true,
 						straight: false,
 						out_mode: "out",
 						bounce: false,
 						attract: {
-							enable: true,
+							enable: false, // Disabled attract for better performance
 							rotateX: 600,
 							rotateY: 1200,
 						},
@@ -123,8 +123,8 @@ const EnhancedTsParticles: React.FC<EnhancedTsParticlesProps> = ({
 					detect_on: "canvas",
 					events: {
 						onhover: {
-							enable: true,
-							mode: ["grab", "bubble"],
+							enable: false, // Disabled hover interaction for better performance
+							mode: ["grab"],
 						},
 						onclick: {
 							enable: true,

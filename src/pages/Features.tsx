@@ -1,14 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import confetti from "canvas-confetti";
-import {
-	// Robot,
-	Zap,
-	Trophy,
-	BarChart3,
-	Shield,
-	CheckCircle,
-} from "lucide-react";
+import { Bot, Zap, Trophy, BarChart3, Shield, CheckCircle } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AnimatedCursor from "@/components/AnimatedCursor";
@@ -72,7 +65,7 @@ const Features = () => {
 			title: "AI-Powered Simulations",
 			description:
 				"Our AI creates personalized phishing attempts based on your company's actual communication style.",
-			icon: <Robot className='h-8 w-8 text-purple-500' />,
+			icon: <Bot className='h-8 w-8 text-purple-500' />,
 			details: [
 				"Learns from your organization's email patterns",
 				"Adapts difficulty based on user performance",

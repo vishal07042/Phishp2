@@ -28,7 +28,8 @@ const timelineItems = [
 
 const ProblemSection = () => {
   return (
-    <section className="py-20 px-4 bg-slate-50 dark:bg-slate-900">
+    <section className="py-20 px-4 bg-slate-50 dark:bg-slate-900      
+    ">
       <div className="container mx-auto">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}

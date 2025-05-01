@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowRight, Shield, Zap, Award } from "lucide-react";
+import { ArrowRight, Shield, Zap } from "lucide-react";
 import { AnimatedButton } from "@/components/ui/animated-button";
 import { useGamification } from "@/components/GamificationSystem";
 
@@ -170,6 +170,8 @@ const HeroSection = () => {
 				animate={{
 					y: [0, -15, 0],
 					rotate: [0, 5, 0, -5, 0],
+					opacity: 1,
+					scale: 1,
 				}}
 				transition={{
 					repeat: Infinity,
@@ -177,7 +179,6 @@ const HeroSection = () => {
 					ease: "easeInOut",
 				}}
 				initial={{ opacity: 0, scale: 0.8 }}
-				animate={{ opacity: 1, scale: 1 }}
 				whileHover={{ scale: 1.05 }}
 			>
 				{/* Email interface mockup */}
@@ -190,60 +191,63 @@ const HeroSection = () => {
 							Suspicious Email
 						</div>
 					</div>
-
-					<div className='p-3'>
-						<div className='flex justify-between items-center mb-3'>
-							<div className='text-xs text-gray-400'>
-								From:{" "}
-								<span className='text-red-400'>
-									ceo-urgent@g00gle-security.com
-								</span>
+					{/* <div className="mx-14">
+						<div className='p-6  '>
+							<div className='flex justify-between items-center mb-3'>
+								<div className='text-xs text-gray-400'>
+									From:{" "}
+									<span className='text-red-400'>
+										ceo-urgent@g00gle-security.com
+									</span>
+								</div>
+								<div className='h-4 w-4 text-yellow-500'>
+									⚠️
+								</div>
 							</div>
-							<Award className='h-4 w-4 text-yellow-500' />
-						</div>
 
-						<div className='text-sm font-medium mb-2 text-white'>
-							Urgent: Security Alert - Action Required
-						</div>
+							<div className='text-sm font-medium mb-2 text-white'>
+								Urgent: Security Alert - Action Required
+							</div>
 
-						<div className='text-xs text-gray-300 mb-4'>
-							Dear Employee, We've detected unusual activity on
-							your account. Please verify your credentials
-							immediately by clicking the link below...
-						</div>
-
-						<motion.button
-							className='w-full bg-blue-600/80 text-white text-xs py-1 rounded'
-							whileHover={{
-								scale: 1.03,
-								backgroundColor: "rgba(37, 99, 235, 0.9)",
-							}}
-							whileTap={{ scale: 0.98 }}
-						>
-							Verify Account
-						</motion.button>
-
-						<motion.div
-							className='mt-4 flex justify-between'
-							initial={{ opacity: 0 }}
-							animate={{ opacity: 1 }}
-							transition={{ delay: 1.2, duration: 0.5 }}
-						>
-							<motion.button
-								className='bg-green-600/80 text-white text-xs py-1 px-3 rounded'
-								whileHover={{ scale: 1.05 }}
-							>
-								Safe
-							</motion.button>
+							<div className='text-xs text-gray-300 mb-4'>
+								Dear Employee, We've detected unusual activity
+								on your account. Please verify your credentials
+								immediately by clicking the link below...
+							</div>
 
 							<motion.button
-								className='bg-red-600/80 text-white text-xs py-1 px-3 rounded'
-								whileHover={{ scale: 1.05 }}
+								className='w-full bg-blue-600/80 text-white text-xs py-1 rounded'
+								whileHover={{
+									scale: 1.03,
+									backgroundColor: "rgba(37, 99, 235, 0.9)",
+								}}
+								whileTap={{ scale: 0.98 }}
 							>
-								Phishing
+								Verify Account
 							</motion.button>
-						</motion.div>
-					</div>
+
+							<motion.div
+								className='mt-4 flex justify-between'
+								initial={{ opacity: 0 }}
+								animate={{ opacity: 1 }}
+								transition={{ delay: 1.2, duration: 0.5 }}
+							>
+								<motion.button
+									className='bg-green-600/80 text-white text-xs py-1 px-3 rounded'
+									whileHover={{ scale: 1.05 }}
+								>
+									Safe
+								</motion.button>
+
+								<motion.button
+									className='bg-red-600/80 text-white text-xs py-1 px-3 rounded'
+									whileHover={{ scale: 1.05 }}
+								>
+									Phishing
+								</motion.button>
+							</motion.div>
+						</div>
+					</div> */}
 				</div>
 			</motion.div>
 		</section>

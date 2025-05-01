@@ -32,7 +32,7 @@ const GlobalFireworks: React.FC = () => {
 			acceleration: 1.05,
 			friction: 0.97,
 			gravity: 1.5,
-			particles: 120, // More particles for bigger explosions
+			particles: 60, // Reduced for better performance
 			trace: 4, // Longer trails
 			explosion: 8, // Bigger explosions
 			autoresize: true,
@@ -69,47 +69,49 @@ const GlobalFireworks: React.FC = () => {
 			}
 		}, 500);
 
-		// Auto-launch fireworks at random intervals with varying patterns
+		// Auto-launch fireworks at random intervals with varying patterns (less frequently)
 		const autoLaunchInterval = setInterval(() => {
-			// Increase chance of fireworks (40% chance)
-			if (Math.random() > 0.6) {
+			// Reduced chance of fireworks (20% chance) for better performance
+			if (Math.random() > 0.8) {
 				// Random position across the width
 				const x = Math.random() * window.innerWidth;
 				const y = window.innerHeight;
 
-				// Randomly decide how many fireworks to launch (1-3)
-				const count = Math.floor(Math.random() * 3) + 1;
+				// Launch only one firework at a time for better performance
+				const count = 1;
 
 				// Launch the fireworks
 				fireworksRef.current?.launch(count, { x, y });
 			}
-		}, 2000); // More frequent fireworks
+		}, 4000); // Less frequent fireworks for better performance
 
-		// Add special pattern launches occasionally
+		// Add special pattern launches very occasionally
 		const patternLaunchInterval = setInterval(() => {
-			if (Math.random() > 0.85) {
-				// 15% chance for pattern
-				// Create a pattern of fireworks (like a line, circle, or burst)
-				const pattern = Math.floor(Math.random() * 3);
+			if (Math.random() > 0.95) {
+				// Reduced to 5% chance for better performance
+				// Create a simpler pattern of fireworks
+				const pattern = Math.floor(Math.random() * 2); // Only 2 patterns for better performance
 
 				switch (pattern) {
-					case 0: // Line pattern
-						for (let i = 0; i < 5; i++) {
+					case 0: // Simplified line pattern
+						for (let i = 0; i < 3; i++) {
+							// Reduced from 5 to 3
 							setTimeout(() => {
 								const x =
 									window.innerWidth * 0.2 +
-									window.innerWidth * 0.6 * (i / 4);
+									window.innerWidth * 0.6 * (i / 2);
 								fireworksRef.current?.launch(1, {
 									x,
 									y: window.innerHeight,
 								});
-							}, i * 200);
+							}, i * 300); // Increased delay
 						}
 						break;
 
-					case 1: // Burst pattern (all at once)
-						for (let i = 0; i < 5; i++) {
-							const angle = (i / 5) * Math.PI * 2;
+					case 1: // Simplified burst pattern
+						for (let i = 0; i < 3; i++) {
+							// Reduced from 5 to 3
+							const angle = (i / 3) * Math.PI * 2;
 							const distance = window.innerWidth * 0.2;
 							const x =
 								window.innerWidth / 2 +
@@ -120,20 +122,9 @@ const GlobalFireworks: React.FC = () => {
 							});
 						}
 						break;
-
-					case 2: // Random cluster
-						const centerX = Math.random() * window.innerWidth;
-						for (let i = 0; i < 3; i++) {
-							const offsetX = (Math.random() - 0.5) * 200;
-							fireworksRef.current?.launch(1, {
-								x: centerX + offsetX,
-								y: window.innerHeight,
-							});
-						}
-						break;
 				}
 			}
-		}, 5000);
+		}, 10000); // Less frequent for better performance
 
 		return () => {
 			clearInterval(autoLaunchInterval);
