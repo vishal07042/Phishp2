@@ -1,0 +1,236 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Pure black theme for space/galaxy look */
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+
+    --card: 0 0% 0%; /* Pure Black */
+    --card-foreground: 0 0% 100%; /* White */
+
+    --popover: 0 0% 0%; /* Pure Black */
+    --popover-foreground: 0 0% 100%; /* White */
+
+    /* Space-themed colors - purples and blues */
+    --primary: 270 100% 60%; /* Deep purple */
+    --primary-foreground: 0 0% 100%; /* White */
+
+    --secondary: 240 100% 20%; /* Dark blue */
+    --secondary-foreground: 0 0% 100%; /* White */
+
+    --muted: 240 30% 10%; /* Very dark blue-gray */
+    --muted-foreground: 240 10% 70%; /* Light blue-gray */
+
+    --accent: 280 100% 60%; /* Bright purple */
+    --accent-foreground: 0 0% 100%; /* White */
+
+    --destructive: 0 100% 50%; /* Bright red */
+    --destructive-foreground: 0 0% 100%; /* White */
+
+    --border: 240 50% 20%; /* Dark blue border */
+    --input: 240 30% 10%; /* Dark blue-gray input */
+    --ring: 270 100% 60%; /* Deep purple ring */
+
+    --radius: 0.5rem;
+
+    /* Sidebar with space theme */
+    --sidebar-background: 0 0% 0%; /* Pure Black */
+    --sidebar-foreground: 0 0% 100%; /* White */
+    --sidebar-primary: 270 100% 60%; /* Deep purple */
+    --sidebar-primary-foreground: 0 0% 100%; /* White */
+    --sidebar-accent: 240 50% 15%; /* Dark blue accent */
+    --sidebar-accent-foreground: 0 0% 100%; /* White */
+    --sidebar-border: 240 50% 20%; /* Dark blue border */
+    --sidebar-ring: 270 100% 60%; /* Deep purple */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-black text-white;
+    background-color: #000000;
+    background-image:
+      radial-gradient(circle at 15% 50%, rgba(25, 0, 50, 0.3) 0%, transparent 25%),
+      radial-gradient(circle at 85% 30%, rgba(0, 20, 80, 0.3) 0%, transparent 30%);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Add subtle star-like dots in the background */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+      radial-gradient(1px 1px at 10% 10%, rgba(255, 255, 255, 0.8) 1px, transparent 0),
+      radial-gradient(1px 1px at 20% 20%, rgba(255, 255, 255, 0.7) 1px, transparent 0),
+      radial-gradient(1px 1px at 30% 30%, rgba(255, 255, 255, 0.9) 1px, transparent 0),
+      radial-gradient(1px 1px at 40% 40%, rgba(255, 255, 255, 0.6) 1px, transparent 0),
+      radial-gradient(1px 1px at 50% 50%, rgba(255, 255, 255, 0.8) 1px, transparent 0),
+      radial-gradient(1px 1px at 60% 60%, rgba(255, 255, 255, 0.7) 1px, transparent 0),
+      radial-gradient(1px 1px at 70% 70%, rgba(255, 255, 255, 0.9) 1px, transparent 0),
+      radial-gradient(1px 1px at 80% 80%, rgba(255, 255, 255, 0.6) 1px, transparent 0),
+      radial-gradient(1px 1px at 90% 90%, rgba(255, 255, 255, 0.8) 1px, transparent 0);
+    background-size: 200px 200px;
+    pointer-events: none;
+    z-index: 0;
+  }
+}
+
+/* Animation styles */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+  20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+.pulse {
+  animation: pulse 2s infinite ease-in-out;
+}
+
+.float {
+  animation: float 6s infinite ease-in-out;
+}
+
+.shake {
+  animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+/* Scrollbar styles */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #111;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Link hover animations */
+.hover-underline {
+  position: relative;
+}
+
+.hover-underline::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: currentColor;
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-out;
+}
+
+.hover-underline:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* Space-themed gradient text */
+.gradient-text {
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(to right, #9333ea, #4f46e5, #3b82f6);
+}
+
+/* Enhanced neon glow effects for space theme */
+.neon-glow {
+  text-shadow:
+    0 0 5px rgba(147, 51, 234, 0.7),
+    0 0 10px rgba(147, 51, 234, 0.5),
+    0 0 20px rgba(147, 51, 234, 0.3),
+    0 0 40px rgba(79, 70, 229, 0.2);
+}
+
+.neon-border {
+  box-shadow:
+    0 0 5px rgba(147, 51, 234, 0.7),
+    0 0 10px rgba(147, 51, 234, 0.5),
+    0 0 20px rgba(79, 70, 229, 0.3);
+}
+
+/* Space/Galaxy specific styles */
+.star {
+  position: absolute;
+  background-color: white;
+  border-radius: 50%;
+  animation: twinkle 4s infinite ease-in-out;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 1; }
+}
+
+/* Nebula effect */
+.nebula {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(40px);
+  opacity: 0.15;
+  z-index: -1;
+}
+
+/* Planet effect */
+.planet {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+  box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.5);
+  z-index: -1;
+}
+
+/* Comet effect */
+.comet {
+  position: absolute;
+  width: 100px;
+  height: 2px;
+  background: linear-gradient(to right, transparent, white);
+  transform: rotate(-45deg);
+  animation: comet-move 8s linear infinite;
+  opacity: 0;
+}
+
+@keyframes comet-move {
+  0% { transform: translateX(-100px) translateY(-100px) rotate(-45deg); opacity: 1; }
+  100% { transform: translateX(calc(100vw + 100px)) translateY(calc(100vh + 100px)) rotate(-45deg); opacity: 0; }
+}
