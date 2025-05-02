@@ -36,7 +36,7 @@ const Features = () => {
 		setTimeout(() => {
 			unlockAchievement("explorer");
 		}, 2000);
-	}, [addPoints, unlockAchievement]);
+	}, []);
 
 	// Track which features the user has viewed
 	const handleFeatureView = (index: number) => {
