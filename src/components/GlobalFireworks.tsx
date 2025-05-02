@@ -32,7 +32,7 @@ const GlobalFireworks: React.FC = () => {
 			acceleration: 1.05,
 			friction: 0.97,
 			gravity: 1.5,
-			particles: 60, // Reduced for better performance
+			particles: 80, // Reduced for better performance
 			trace: 4, // Longer trails
 			explosion: 8, // Bigger explosions
 			autoresize: true,
